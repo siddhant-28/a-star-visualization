@@ -17,6 +17,10 @@ class Spot {
             this.wall = true;
         } 
 
+        this.removeWall = function () {
+            this.wall = false;
+        }
+
         this.show = function (col) {
             fill(col);
             if (this.wall) {

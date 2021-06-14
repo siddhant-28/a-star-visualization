@@ -29,7 +29,6 @@ function setup() {
     end.wall = false;
     openSet.push(start);
     console.log(grid);
-
 }
 
 
@@ -45,11 +44,21 @@ function draw() {
             }
         }
 
-        var current = openSet[winner];
+        current = openSet[winner];
 
         if (current === end) {
             startClicked = false;
             console.log("DONE!");
+
+            document.getElementById("resetAlgo").addEventListener("click", function() {
+                startClicked = false;
+                path = [];
+                openSet = [];
+                closedSet = [];
+                resetWalls();   
+                openSet.push(start);
+                current = null;
+            })
         }
 
         removefromArray(openSet, current);
@@ -99,12 +108,8 @@ function draw() {
     }
 }
 
-    for (var i = 0; i < cols; i++) {
-        for (var j = 0; j < rows; j++) {
-            grid[i][j].show(color(255));
-    
-        }
-    }
+ 
+    colorGrid();
 
     colorClosedSet();
     colorOpenSet();
@@ -128,7 +133,7 @@ function mouseDragged() {
     for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {
             if(Math.floor(mouseX/w) == i && Math.floor(mouseY/w) == j) {
-                console.log(i + " " + j);
+                //console.log(i + " " + j);
                 grid[i][j].addWall();
                 grid[i][j].show(color(255));
             }
@@ -145,6 +150,24 @@ function colorOpenSet() {
 function colorClosedSet() {
     for (var i = 0; i < closedSet.length; i++) {
         closedSet[i].show(color(255, 0 ,0 ));
+    }
+}
+
+function resetWalls() {
+    for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+            grid[i][j].removeWall();
+    
+        }
+    }
+}
+
+function colorGrid() {
+    for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+            grid[i][j].show(color(255));
+    
+        }
     }
 }
 

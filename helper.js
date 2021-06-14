@@ -10,6 +10,7 @@ var path = [];
 var noSolution = false;
 var startClicked = false;
 var cnv;
+var current;
 
 function removefromArray(arr, elt) {
     for( var i = arr.length - 1; i >= 0; i--) {
