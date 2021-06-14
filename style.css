@@ -1,0 +1,21 @@
+/* html, body {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
+    display: flex;
+  
+    /* This centers our sketch horizontally. */
+    /* justify-content: center; */
+  
+    /* This centers our sketch vertically. */
+    /* align-items: center; */
+  /* } */ 
+/* 
+  h1 {
+      display:inline;
+      margin: 8px;
+      align-items: stretch;
+      justify-content: flex-start;
+  } */
